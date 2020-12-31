@@ -1,7 +1,6 @@
 package Annotation.ParseTree;
 
 import AnnotatedTree.ChunkType;
-import DataCollector.ParseTree.ShallowParse.TreeChunkViewPanel;
 import DataCollector.ParseTree.TreeEditorFrame;
 import DataCollector.ParseTree.TreeEditorPanel;
 
@@ -34,11 +33,11 @@ public class TreeChunkViewFrame extends TreeEditorFrame {
 
     @Override
     protected TreeEditorPanel generatePanel(String currentPath, String rawFileName) {
-        return new DataCollector.ParseTree.ShallowParse.TreeChunkViewPanel(currentPath, rawFileName);
+        return new TreeChunkViewPanel(currentPath, rawFileName);
     }
 
     private void setChunkType(ChunkType chunkType){
-        DataCollector.ParseTree.ShallowParse.TreeChunkViewPanel current = (TreeChunkViewPanel) ((JScrollPane) projectPane.getSelectedComponent()).getViewport().getView();
+        TreeChunkViewPanel current = (TreeChunkViewPanel) ((JScrollPane) projectPane.getSelectedComponent()).getViewport().getView();
         current.setChunkType(chunkType);
     }
 
