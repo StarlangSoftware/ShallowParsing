@@ -1,8 +1,6 @@
 For Developers
 ============
 
-You can also see [Python](https://github.com/starlangsoftware/ShallowParsing-Py), [Cython](https://github.com/starlangsoftware/ShallowParsing-Cy), [C++](https://github.com/starlangsoftware/ShallowParsing-CPP), or [C#](https://github.com/starlangsoftware/ShallowParsing-CS) repository.
-
 ## Requirements
 
 * [Java Development Kit 8 or higher](#java), Open JDK or Oracle JDK
