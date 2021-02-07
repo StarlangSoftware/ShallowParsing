@@ -1,3 +1,23 @@
+# Shallow Parse Task
+
+Many language processing tasks do not require complex parse trees. Instead, a partial parse, or a shallow parse of a sentence is sufficient. Shallow parsing is the process of identifying flat non-overlapping parts of a sentence. These parts typically include Özne, Yüklem, Nesne, Zarf Tümleci, and Dolaylı Tümleç. Since a parsed text does not include a hierarchical structure, a bracketing notation is sufficient to denote the location and the type of shallow parse chunks in a sentence. 
+
+In shallow parsing, one tries to find the strings of text that belong to a chunk and to classify the type of that chunk. Standard approach for shallow parsing is a word-by-word classification, where the classifier is trained to label the words in the text with tags that indicate the presence of particular chunks. After giving the class labels to our training data chunk labels, the next step is to select a group of features to discriminate different chunks for each input word.
+
+[<sub>OZNE</sub> Türk Hava Yolları] [<sub>ZARF TÜMLECİ</sub> Salı günü] [<sub>NESNE</sub> yeni indirimli fiyatlarını] [<sub>YÜKLEM</sub> açıkladı]
+
+[<sub>SUBJECT</sub> Turkish Airlines] [<sub>PREDICATE</sub> announced] [<sub>OBJECT</sub> new discounted fares] [<sub>ADVERBIAL CLAUSE</sub> on Tuesday]  
+
+The Table below shows typical shallow parse tags and the questions asked to the predicate to identify the chunks for those tags.
+ 
+|Tag|Question|
+|---|---|
+|ÖZNE|Who, What|
+|ZARF TÜMLECİ|When, How, Why|
+|DOLAYLI TÜMLEÇ|Where, To/From whom|
+|NESNE|What, Whom|
+|YÜKLEM|Predicate|
+
 For Developers
 ============
 
