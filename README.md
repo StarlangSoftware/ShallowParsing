@@ -1,4 +1,6 @@
-# Shallow Parsing Task
+# Shallow Parsing
+
+## Task Definition
 
 Many language processing tasks do not require complex parse trees. Instead, a partial parse, or a shallow parse of a sentence is sufficient. Shallow parsing is the process of identifying flat non-overlapping parts of a sentence. These parts typically include Özne, Yüklem, Nesne, Zarf Tümleci, and Dolaylı Tümleç. Since a parsed text does not include a hierarchical structure, a bracketing notation is sufficient to denote the location and the type of shallow parse chunks in a sentence. 
 
@@ -17,6 +19,25 @@ The Table below shows typical shallow parse tags and the questions asked to the 
 |DOLAYLI TÜMLEÇ|Where, To/From whom|
 |NESNE|What, Whom|
 |YÜKLEM|Predicate|
+
+## Data Annotation
+
+### Preparation
+
+1. Collect a set of sentences to annotate. 
+2. Each sentence in the collection must be named as xxxx.yyyyy in increasing order. For example, the first sentence to be annotated will be 0001.train, the second 0002.train, etc.
+3. Put the sentences in the same folder such as *Turkish-Phrase*.
+4. Build the project and put the generated sentence-shallowparse.jar file into another folder such as *Program*.
+5. Put *Turkish-Phrase* and *Program* folders into a parent folder.
+
+### Annotation
+
+1. Open sentence-shallowparse.jar file.
+2. Wait until the data load message is displayed.
+3. Click Open button in the Project menu.
+4. Choose a file for annotation from the folder *Turkish-Phrase*.
+5. For each word in the sentence, click the word, and annotate the word with one of the ÖZNE, NESNE, DOLAYLI_TÜMLEÇ, ZARF_TÜMLECİ, YÜKLEM, NONE tags.
+6. Click one of the next buttons to go to other files.
 
 For Developers
 ============
