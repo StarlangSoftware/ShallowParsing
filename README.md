@@ -29,14 +29,18 @@ The Table below shows typical shallow parse tags and the questions asked to the 
 3. Put the sentences in the same folder such as *Turkish-Phrase*.
 4. Build the project and put the generated sentence-shallowparse.jar file into another folder such as *Program*.
 5. Put *Turkish-Phrase* and *Program* folders into a parent folder.
+![Main Folder](folder.png)
 
 ### Annotation
 
 1. Open sentence-shallowparse.jar file.
 2. Wait until the data load message is displayed.
 3. Click Open button in the Project menu.
-4. Choose a file for annotation from the folder *Turkish-Phrase*.
+![Open File](open.png)
+4. Choose a file for annotation from the folder *Turkish-Phrase*.  
+![Choose File](choosefile.png)
 5. For each word in the sentence, click the word, and annotate the word with one of the ÖZNE, NESNE, DOLAYLI_TÜMLEÇ, ZARF_TÜMLECİ, YÜKLEM, NONE tags.
+![Shallow Parse Annotation](shallowparse.png)
 6. Click one of the next buttons to go to other files.
 
 For Developers
