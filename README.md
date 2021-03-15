@@ -43,6 +43,14 @@ The Table below shows typical shallow parse tags and the questions asked to the 
 ![Shallow Parse Annotation](shallowparse.png)
 6. Click one of the next buttons to go to other files.
 
+## Classification DataSet Generation
+
+After annotating sentences, you can use [DataGenerator](https://github.com/starlangsoftware/DataGenerator) package to generate classification dataset for the Shallow Parsing task.
+
+## Generation of ML Models
+
+After generating the classification dataset as above, one can use the [Classification](https://github.com/starlangsoftware/Classification) package to generate machine learning models for the Shallow Parsing task.
+
 For Developers
 ============
 
