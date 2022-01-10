@@ -24,6 +24,36 @@ public class SentenceShallowParsePanel extends SentenceAnnotatorPanel {
         setLayout(new BorderLayout());
     }
 
+    @Override
+    protected void setWordLayer() {
+        clickedWord.setShallowParse((String) list.getSelectedValue());
+    }
+
+    @Override
+    protected void setBounds() {
+        pane.setBounds(((AnnotatedWord)sentence.getWord(selectedWordIndex)).getArea().x, ((AnnotatedWord)sentence.getWord(selectedWordIndex)).getArea().y + 20, 240, (int) (Toolkit.getDefaultToolkit().getScreenSize().height * 0.4));
+    }
+
+    @Override
+    protected void drawLayer(AnnotatedWord word, Graphics g, int currentLeft, int lineIndex, int wordIndex, int maxSize, ArrayList<Integer> wordSize, ArrayList<Integer> wordTotal) {
+        if (word.getShallowParse() != null){
+            String correct = word.getShallowParse();
+            g.drawString(correct, currentLeft, (lineIndex + 1) * lineSpace + 30);
+        }
+    }
+
+    @Override
+    protected int getMaxLayerLength(AnnotatedWord word, Graphics g) {
+        int maxSize = g.getFontMetrics().stringWidth(word.getName());
+        if (word.getShallowParse() != null){
+            int size = g.getFontMetrics().stringWidth(word.getShallowParse());
+            if (size > maxSize){
+                maxSize = size;
+            }
+        }
+        return maxSize;
+    }
+
     private class ListRenderer extends DefaultListCellRenderer {
         public Component getListCellRendererComponent(JList list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
             Component cell = super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
