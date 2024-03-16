@@ -8,7 +8,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class TreeChunkViewFrame extends TreeEditorFrame {
-    private JComboBox<String> chunkTypeComboBox;
+    private final JComboBox<String> chunkTypeComboBox;
 
     public TreeChunkViewFrame(){
         this.setTitle("Chunking Viewer");

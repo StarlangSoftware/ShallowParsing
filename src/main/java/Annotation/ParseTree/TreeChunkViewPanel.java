@@ -49,8 +49,7 @@ public class TreeChunkViewPanel extends TreeEditorPanel {
                     if (g.getFontMetrics().stringWidth(parseNode.getLayerInfo().getShallowParseAt(i)) > stringSize){
                         stringSize = g.getFontMetrics().stringWidth(parseNode.getLayerInfo().getShallowParseAt(i));
                     }
-            } catch (LayerNotExistsException | WordNotExistsException e) {
-                e.printStackTrace();
+            } catch (LayerNotExistsException | WordNotExistsException ignored) {
             }
             return stringSize;
         } else {
@@ -68,12 +67,10 @@ public class TreeChunkViewPanel extends TreeEditorPanel {
                     try {
                         y += 20;
                         g.drawString(parseNode.getLayerInfo().getShallowParseAt(i), x, y);
-                    } catch (LayerNotExistsException | WordNotExistsException e) {
-                        e.printStackTrace();
+                    } catch (LayerNotExistsException | WordNotExistsException ignored) {
                     }
                 }
-            } catch (LayerNotExistsException e) {
-                e.printStackTrace();
+            } catch (LayerNotExistsException ignored) {
             }
         } else {
             g.drawString(parseNode.getData().getName(), x, y);
@@ -84,8 +81,7 @@ public class TreeChunkViewPanel extends TreeEditorPanel {
         if (parseNode.numberOfChildren() == 0){
             try {
                 parseNode.setArea(x - 5, y - 15, stringSize + 10, 20 * (parseNode.getLayerInfo().getNumberOfWords() + 1));
-            } catch (LayerNotExistsException e) {
-                e.printStackTrace();
+            } catch (LayerNotExistsException ignored) {
             }
         } else {
             parseNode.setArea(x - 5, y - 15, stringSize + 10, 20);

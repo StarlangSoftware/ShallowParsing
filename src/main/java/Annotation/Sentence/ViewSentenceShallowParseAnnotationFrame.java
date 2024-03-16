@@ -3,7 +3,6 @@ package Annotation.Sentence;
 import AnnotatedSentence.*;
 import DataCollector.ParseTree.TreeEditorPanel;
 import DataCollector.Sentence.ViewSentenceAnnotationFrame;
-import Dictionary.Word;
 
 import javax.swing.*;
 import java.awt.*;

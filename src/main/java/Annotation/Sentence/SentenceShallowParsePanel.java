@@ -12,9 +12,9 @@ import java.util.List;
 import java.util.Map;
 
 public class SentenceShallowParsePanel extends SentenceAnnotatorPanel {
-    private HashMap<String, ArrayList<AnnotatedWord>> mappedWords;
-    private HashMap<String, ArrayList<AnnotatedSentence>> mappedSentences;
-    private String[] shallowParseList = {"YÜKLEM", "ÖZNE", "NESNE", "ZARF_TÜMLECİ", "DOLAYLI_TÜMLEÇ", "HİÇBİRİ"};
+    private final HashMap<String, ArrayList<AnnotatedWord>> mappedWords;
+    private final HashMap<String, ArrayList<AnnotatedSentence>> mappedSentences;
+    private final String[] shallowParseList = {"YÜKLEM", "ÖZNE", "NESNE", "ZARF_TÜMLECİ", "DOLAYLI_TÜMLEÇ", "HİÇBİRİ"};
 
     public SentenceShallowParsePanel(String currentPath, String fileName, HashMap<String, ArrayList<AnnotatedWord>> mappedWords, HashMap<String, ArrayList<AnnotatedSentence>> mappedSentences){
         super(currentPath, fileName, ViewLayerType.SHALLOW_PARSE);
@@ -63,7 +63,7 @@ public class SentenceShallowParsePanel extends SentenceAnnotatorPanel {
         public Component getListCellRendererComponent(JList list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
             Component cell = super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
             AnnotatedWord selectedWord = ((AnnotatedWord)sentence.getWord(selectedWordIndex));
-            String examples = "<html>";
+            StringBuilder examples = new StringBuilder("<html>");
             int count = 0;
             if (mappedSentences.containsKey(selectedWord.getName())){
                 for (AnnotatedSentence annotatedSentence : mappedSentences.get(selectedWord.getName())){
@@ -71,7 +71,7 @@ public class SentenceShallowParsePanel extends SentenceAnnotatorPanel {
                         AnnotatedWord word = (AnnotatedWord) annotatedSentence.getWord(i);
                         if (word.getName().equals(selectedWord.getName()) && word.getShallowParse() != null){
                             if (word.getShallowParse().equals(value)){
-                                examples += annotatedSentence.toShallowParseString(i) + "<br>";
+                                examples.append(annotatedSentence.toShallowParseString(i)).append("<br>");
                                 count++;
                             }
                         }
@@ -81,8 +81,8 @@ public class SentenceShallowParsePanel extends SentenceAnnotatorPanel {
                     }
                 }
             }
-            examples += "</html>";
-            ((JComponent) cell).setToolTipText(examples);
+            examples.append("</html>");
+            ((JComponent) cell).setToolTipText(examples.toString());
             return this;
         }
     }
