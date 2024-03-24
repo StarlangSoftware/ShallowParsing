@@ -103,7 +103,8 @@ public class ViewSentenceShallowParseAnnotationFrame extends ViewSentenceAnnotat
                     int row = dataTable.rowAtPoint(evt.getPoint());
                     if (row >= 0) {
                         String fileName = data.get(row).get(0);
-                        sentenceShallowParseFrame.addPanelToFrame(sentenceShallowParseFrame.generatePanel(TreeEditorPanel.phrasePath, fileName), fileName);
+                        AnnotatedSentence sentence = (AnnotatedSentence) corpus.getSentence(Integer.parseInt(data.get(row).get(COLOR_COLUMN_INDEX - 1)));
+                        sentenceShallowParseFrame.addPanelToFrame(sentenceShallowParseFrame.generatePanel(sentence.getFile().getParent(), fileName), fileName);
                     }
                 }
             }
