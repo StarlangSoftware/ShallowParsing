@@ -3,7 +3,6 @@ package Annotation.Sentence;
 import AnnotatedSentence.AnnotatedCorpus;
 import AnnotatedSentence.AnnotatedSentence;
 import AnnotatedSentence.AnnotatedWord;
-import DataCollector.ParseTree.TreeEditorPanel;
 import DataCollector.Sentence.SentenceAnnotatorFrame;
 import DataCollector.Sentence.SentenceAnnotatorPanel;
 
@@ -22,6 +21,12 @@ public class SentenceShallowParseFrame extends SentenceAnnotatorFrame {
     private final HashMap<String, ArrayList<AnnotatedWord>> mappedWords = new HashMap<>();
     private final HashMap<String, ArrayList<AnnotatedSentence>> mappedSentences = new HashMap<>();
 
+    /**
+     * Constructor of the Shallow parse frame for annotated sentence. It reads the annotated sentence corpus. It also
+     * creates mappedWords and mappedSentences. mappedWords will be used to show the
+     * user how many times that word was annotated with different Shallow Parse tags. mappedSentences will be used to
+     * show the user how other sentences with that word was annotated.
+     */
     public SentenceShallowParseFrame(){
         super();
         AnnotatedCorpus annotatedCorpus;

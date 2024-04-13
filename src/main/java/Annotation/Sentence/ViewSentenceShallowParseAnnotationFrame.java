@@ -1,7 +1,6 @@
 package Annotation.Sentence;
 
 import AnnotatedSentence.*;
-import DataCollector.ParseTree.TreeEditorPanel;
 import DataCollector.Sentence.ViewSentenceAnnotationFrame;
 
 import javax.swing.*;
@@ -12,6 +11,10 @@ import java.util.ArrayList;
 
 public class ViewSentenceShallowParseAnnotationFrame extends ViewSentenceAnnotationFrame implements ActionListener {
 
+    /**
+     * Updates the shallow parse tag for the selected sentences.
+     * @param e Action event to be processed.
+     */
     public void actionPerformed(ActionEvent e) {
         super.actionPerformed(e);
         if (PASTE.equals(e.getActionCommand())) {
@@ -26,6 +29,11 @@ public class ViewSentenceShallowParseAnnotationFrame extends ViewSentenceAnnotat
 
     public class ShallowParseTableDataModel extends TableDataModel {
 
+        /**
+         * Returns the name of the given column.
+         * @param col  the column being queried
+         * @return Name of the given column
+         */
         public String getColumnName(int col) {
             switch (col) {
                 case FILENAME_INDEX:
@@ -43,6 +51,12 @@ public class ViewSentenceShallowParseAnnotationFrame extends ViewSentenceAnnotat
             }
         }
 
+        /**
+         * Updates the shallow parse tag for the sentence in the given cell.
+         * @param value   value to assign to cell
+         * @param row   row of cell
+         * @param col  column of cell
+         */
         public void setValueAt(Object value, int row, int col) {
             if (col == TAG_INDEX && !data.get(row).get(TAG_INDEX).equals(value)) {
                 updateShallowParse(row, (String) value);
@@ -50,6 +64,12 @@ public class ViewSentenceShallowParseAnnotationFrame extends ViewSentenceAnnotat
         }
     }
 
+    /**
+     * Sets the value in the data table. After finding the corresponding sentence in that row, updates the shallow parse
+     * layer of that word associated with that row.
+     * @param row Index of the row
+     * @param newValue Shallow parse tag to be assigned.
+     */
     private void updateShallowParse(int row, String newValue){
         data.get(row).set(TAG_INDEX, newValue);
         AnnotatedSentence sentence = (AnnotatedSentence) corpus.getSentence(Integer.parseInt(data.get(row).get(COLOR_COLUMN_INDEX - 1)));
@@ -58,6 +78,18 @@ public class ViewSentenceShallowParseAnnotationFrame extends ViewSentenceAnnotat
         sentence.save();
     }
 
+    /**
+     * Constructs the data table. For every sentence, the columns are:
+     * <ol>
+     *     <li>Annotated sentence file name</li>
+     *     <li>Index of the word</li>
+     *     <li>Word itself</li>
+     *     <li>Shallow parse tag of the word if it exists, - otherwise</li>
+     *     <li>Annotated sentence itself</li>
+     *     <li>Sentence index</li>
+     * </ol>
+     * @param corpus Annotated NER corpus
+     */
     protected void prepareData(AnnotatedCorpus corpus){
         data = new ArrayList<>();
         for (int i = 0; i < corpus.sentenceCount(); i++){
@@ -82,6 +114,13 @@ public class ViewSentenceShallowParseAnnotationFrame extends ViewSentenceAnnotat
         }
     }
 
+    /**
+     * Constructs Shallow parse annotation frame viewer. Arranges the minimum width, maximum width or with of every
+     * column. If the user double-clicks any row, the method automatically creates a new panel showing associated
+     * annotated sentence.
+     * @param corpus Annotated Shallow parse corpus
+     * @param sentenceShallowParseFrame Frame in which new panels will be created, when the user double-clicks a row.
+     */
     public ViewSentenceShallowParseAnnotationFrame(AnnotatedCorpus corpus, SentenceShallowParseFrame sentenceShallowParseFrame){
         super(corpus);
         COLOR_COLUMN_INDEX = 6;

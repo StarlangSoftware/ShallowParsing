@@ -10,6 +10,9 @@ import java.awt.*;
 public class TreeChunkViewFrame extends TreeEditorFrame {
     private final JComboBox<String> chunkTypeComboBox;
 
+    /**
+     * Constructor for shallow parse viewer frame.
+     */
     public TreeChunkViewFrame(){
         this.setTitle("Chunking Viewer");
         toolBar.addSeparator();
