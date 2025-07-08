@@ -68,7 +68,7 @@ public class SentenceShallowParseFrame extends SentenceAnnotatorFrame {
     }
 
     @Override
-    protected SentenceAnnotatorPanel generatePanel(String currentPath, String rawFileName) {
+    public SentenceAnnotatorPanel generatePanel(String currentPath, String rawFileName) {
         return new SentenceShallowParsePanel(currentPath, rawFileName,mappedWords, mappedSentences);
     }
 }
