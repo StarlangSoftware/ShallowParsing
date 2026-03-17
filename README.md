@@ -51,6 +51,10 @@ After annotating sentences, you can use [DataGenerator](https://github.com/starl
 
 After generating the classification dataset as above, one can use the [Classification](https://github.com/starlangsoftware/Classification) package to generate machine learning models for the Shallow Parsing task.
 
+Annotated Datasets
+============
+[Tourism, Penn-Treebank](http://104.247.163.162/nlptoolkit/turkish-shallowparse1.html)
+
 For Developers
 ============
 
